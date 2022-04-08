@@ -3,17 +3,26 @@ package com.zipcodewilmington;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.zipcodewilmington.Person.Sex.FEMALE;
+import static com.zipcodewilmington.Person.Sex.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
     static Person person = new Person();
+    static Person person2;
+
+
     @BeforeAll
     static void setUp(){
-        person.setBirthday("01-08-1997");
-        person.setName("Vera");
-        person.setGender(FEMALE);
+        String birthday = "01-08-1997";
+        String name= "Vera";
+        Person.Sex gender = FEMALE;
+        String emailAddress = "null@null.com";
+
+        person.setBirthday(birthday);
+        person.setName(name);
+        person.setGender(gender);
         person.setEmailAddress("null@null.com");
+        person2 = new Person("Jack","04-23-1918",MALE,emailAddress);
     }
 
 
@@ -61,9 +70,17 @@ class PersonTest {
 
     @Test
     void getEmailAddress() {
+        String actual = person.getEmailAddress();
+        String expected = "null@null.com";
+        assertEquals(actual,expected);
     }
 
     @Test
     void setEmailAddress() {
+        person.setEmailAddress("veranull@null.com");
+        String actual = person.getEmailAddress();
+        String expected = "veranull@null.com";
+        assertEquals(actual,expected);
+
     }
 }
