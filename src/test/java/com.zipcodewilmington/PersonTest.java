@@ -54,6 +54,7 @@ class PersonTest {
 
     @Test
     void getBirthday() {
+
     }
 
     @Test
@@ -66,6 +67,11 @@ class PersonTest {
 
     @Test
     void setGender() {
+        Person.Sex expected = NON_BINARY;
+        person2.setGender(expected);
+        Person.Sex actual = person2.getGender();
+
+        assertEquals(actual,expected);
     }
 
     @Test
@@ -77,9 +83,10 @@ class PersonTest {
 
     @Test
     void setEmailAddress() {
-        person.setEmailAddress("veranull@null.com");
-        String actual = person.getEmailAddress();
         String expected = "veranull@null.com";
+        person.setEmailAddress(expected);
+        String actual = person.getEmailAddress();
+
         assertEquals(actual,expected);
 
     }
