@@ -41,24 +41,33 @@ class PersonTest {
 
     @Test
     void testToString() {
+        String expected =
+                "Name: " + person.name +
+                "Birthday: " + person.birthday +
+                "Gender: " + person.gender +
+                "E-mail: " + person.emailAddress +
+                "Age: "    + person.getAge();
+
+        String actual = person.toString();
+
+        assertEquals(actual, expected);
     }
 
     @Test
     void printPerson() {
-    }
 
-    @Test
-    void getName() {
     }
 
     @Test
     void setName() {
+        String expected = "Jacky";
+        person2.setName(expected);
+        String actual = person2.getName();
+
+        assertEquals(actual,expected);
+
     }
 
-    @Test
-    void getBirthday() {
-
-    }
 
     @Test
     void setBirthday() {
