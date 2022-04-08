@@ -3,6 +3,9 @@ package com.zipcodewilmington;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import static com.zipcodewilmington.Person.Sex.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -59,11 +62,16 @@ class PersonTest {
 
     @Test
     void setBirthday() {
+        String date = "09-17-1912";
+        person2.setBirthday(date);
+
+        LocalDate actual = person2.getBirthday();
+        LocalDate expected = LocalDate.parse(date, DateTimeFormatter.ofPattern("MM-dd-yyyy"));
+
+
+        assertEquals(actual, expected);
     }
 
-    @Test
-    void getGender() {
-    }
 
     @Test
     void setGender() {
