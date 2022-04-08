@@ -41,9 +41,9 @@ public class Person {
     }
 
 
-    public void printPerson() {
-        toString();
-    }
+//    public void printPerson() {
+//        toString();
+//    }
 
     public void setName(String name) {
         this.name = name;
