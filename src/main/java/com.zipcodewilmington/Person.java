@@ -2,6 +2,7 @@ package com.zipcodewilmington;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class Person {
     public enum Sex {
@@ -15,9 +16,9 @@ public class Person {
 
     public Person(){
     }
-    public Person(String name, LocalDate birthday, Sex gender, String emailAddress){
+    public Person(String name, String birthday, Sex gender, String emailAddress){
         this.name = name;
-        this.birthday = birthday;
+        this.birthday = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("MM-dd-yyyy"));
         this.gender = gender;
         this. emailAddress = emailAddress;
     }
@@ -51,6 +52,27 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+       this.birthday = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("MM-dd-yyyy"));
+    }
+
+    public Sex getGender() {
+        return gender;
+    }
+
+    public void setGender(Sex gender) {
+        this.gender = gender;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
 
     public LocalDate getBirthday() {
         return birthday;
