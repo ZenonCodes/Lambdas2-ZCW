@@ -3,20 +3,28 @@ package com.zipcodewilmington;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.zipcodewilmington.Person.Sex.FEMALE;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
-    Person person = new Person();
+    static Person person = new Person();
     @BeforeAll
-    public void init(){
-        person.setBirthday(1997,01,08);
+    static void setUp(){
+        person.setBirthday("01-08-1997");
+        person.setName("Vera");
+        person.setGender(FEMALE);
+        person.setEmailAddress("null@null.com");
     }
 
 
 
     @Test
     void getAge() {
+        Person testPerson = person;
 
+        Integer expected = 25;
+        Integer actual = person.getAge();
+        assertEquals(actual, expected);
     }
 
     @Test
